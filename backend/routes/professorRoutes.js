@@ -17,4 +17,22 @@ router.get("/", (req, res) => {
     ]);
 });
 
+router.get("/:id", (req, res) => {
+    const id = req.params.id;
+    res.json([
+        {
+            mensagem: `professor de id: ${id}`
+        }
+    ]);
+});
+
+router.post("/", (req, res) => {
+    const professor = req.body;
+
+    if(!professor.nome){
+        return res.status(400).json("Nome do professor é obrigátorio");
+    }
+    res.status(201).json(professor);
+});
+
 module.exports = router;
