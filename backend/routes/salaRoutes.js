@@ -1,3 +1,5 @@
+const salaService = require("../services/salaService");
+
 const express = require("express");
 
 const router = express.Router();
@@ -21,15 +23,15 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    const sala = req.body;
+    try{
+        const sala = salaService.cadastrarSala(req.body);
+        res.status(sala);
 
-    if(!sala.nome){
-        return res.status(400).json({
-            mensagem: "Nome de sala é obrigatório"
+    }catch(erro){
+        res.status(400).json({
+            mensagem: erro.mensagem
         });
     }
-    
-    res.status(201).json(sala);
 });
 
 

@@ -1,3 +1,4 @@
+const professorService = require("../services/professorService")
 const express = require("express");
 
 const router = express.Router();
@@ -27,12 +28,14 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    const professor = req.body;
-
-    if(!professor.nome){
-        return res.status(400).json("Nome do professor é obrigátorio");
-    }
+   try{
+    const professor = professorService(req.body);
     res.status(201).json(professor);
+   }catch (erro){
+        res.status(400).json({
+            mensagem: erro.mensagem
+        });
+   }
 });
 
 module.exports = router;
