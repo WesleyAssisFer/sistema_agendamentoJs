@@ -1,17 +1,13 @@
+const connection = require("../database/connection");
 const salaService = require("../services/salaService");
 
 const express = require("express");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.json([
-        {
-            id: 1,
-            nome: "Laboratorio 01",
-            capacidade: 20
-        }
-    ]);
+router.get("/", async (req, res) => {
+    const salas = await salaService.listarSalas();
+    res.json(salas);
 });
 
 router.get("/:id", (req, res) => {
@@ -22,14 +18,14 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
     try{
-        const sala = salaService.cadastrarSala(req.body);
-        res.status(sala);
+       const sala = await salaService.cadastrarSala(req.body);
+       res.status(201).json(sala);
 
-    }catch(erro){
+    }catch(error){
         res.status(400).json({
-            mensagem: erro.mensagem
+            mensagem: erro.message
         });
     }
 });

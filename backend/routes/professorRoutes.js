@@ -3,19 +3,12 @@ const express = require("express");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.json([
-        {
-            id: 1,
-            nome: "Pedro",
-            email : "pedro@gmail.com"
-        },
-        {
-            id: 2,
-            nome: "Joao",
-            email: "joao@gmail.com"
-        }
-    ]);
+router.get("/", async (req, res) => {
+
+   const professores = await professorService.listarProfessores();
+
+   res.json(professores);
+
 });
 
 router.get("/:id", (req, res) => {
@@ -27,13 +20,15 @@ router.get("/:id", (req, res) => {
     ]);
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
    try{
-    const professor = professorService(req.body);
+
+    const professor = await professorService.cadastrarProfessor(req.body);
     res.status(201).json(professor);
+
    }catch (erro){
         res.status(400).json({
-            mensagem: erro.mensagem
+            mensagem: erro.message
         });
    }
 });
