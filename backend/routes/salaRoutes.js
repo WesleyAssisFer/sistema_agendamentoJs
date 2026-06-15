@@ -30,6 +30,19 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.put("/:id", async (req, res) => {
+    
+    try{
+        const id = req.params.id;
 
+        const salaAtualizada = await salaService.atualizarSala(id, req.body);
+        res.json(salaAtualizada);
+
+    }catch(erro){
+        res.status(400).json({
+            mensagem: erro.message
+        });
+    }
+});
 
 module.exports = router;

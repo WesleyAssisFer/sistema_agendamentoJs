@@ -28,7 +28,32 @@ async function cadastrarProfessor(professor){
     return novoProfessor;
 }
 
+
+async function atualzarProfessor(id, professor){
+
+    if(!professor.nome){
+        throw new Error("Nome do professor é obrigátorio");
+    }
+
+    const [resultado] = await connection.query(
+        `UPDATE professores
+        SET nome = ?, email = ?
+        WHERE id = ?`,
+      [professor.nome, professor.email, id]  
+    );
+
+    const professorAtializado = {
+        id: id,
+        nome: professor.nome,
+        email: professor.email
+    };
+    
+    return professorAtializado;
+
+}
+
 module.exports = {
     cadastrarProfessor,
-    listarProfessores
+    listarProfessores,
+    atualzarProfessor
 }

@@ -33,4 +33,19 @@ router.post("/", async (req, res) => {
    }
 });
 
+router.put("/:id", async (req, res) => {
+    try{
+        const id = req.params.id;
+
+        const professorAtializado = await professorService.atualzarProfessor(id, req.body);
+        res.json(professorAtializado);
+
+    }catch(erro){
+        res.status(400).json({
+            mensagem: erro.message
+        });
+    }
+
+});
+
 module.exports = router;

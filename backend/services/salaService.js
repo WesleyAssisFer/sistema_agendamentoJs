@@ -25,7 +25,30 @@ async function cadastrarSala(sala){
     return novaSala;
 }
 
+async function atualizarSala(id, sala){
+    if(!sala.nome){
+        throw new Error("Nome da sala é obrigátorio");
+    }
+
+    const [resultado] = await connection.query(
+        `UPDATE salas
+        SET nome = ?, capacidade = ?
+        WHERE id = ?`,
+        [sala.nome, sala.capacidade, id]
+    );
+
+    const salaAtualizada = {
+        id: id,
+        nome: sala.nome,
+        capacidade: sala.capacidade
+    };
+
+    return salaAtualizada;
+
+}
+
 module.exports = {
     cadastrarSala,
-    listarSalas
+    listarSalas,
+    atualizarSala
 };
