@@ -48,4 +48,19 @@ router.put("/:id", async (req, res) => {
 
 });
 
+router.delete("/:id", async (req, res) => {
+    try{
+        const id = req.params.id;
+        
+        const excluirProfessor = await professorService.apagarProfessor(id);
+        res.json({
+            id: id + "deletado"
+        });
+    }catch(erro){
+        res.status(400).json({
+            mensaem: erro.message
+        });
+    }
+});
+
 module.exports = router;

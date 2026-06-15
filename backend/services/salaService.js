@@ -44,11 +44,22 @@ async function atualizarSala(id, sala){
     };
 
     return salaAtualizada;
-
 }
+
+async function excluirSala(id){
+    const [resultado] = await connection.query(
+        `DELETE FROM salas
+        WHERE id = ?`,
+        [id]
+    );
+
+    return id;
+    
+};
 
 module.exports = {
     cadastrarSala,
     listarSalas,
-    atualizarSala
+    atualizarSala,
+    excluirSala
 };

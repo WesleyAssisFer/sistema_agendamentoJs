@@ -52,8 +52,22 @@ async function atualzarProfessor(id, professor){
 
 }
 
+
+async function apagarProfessor(id){
+
+    const [resultado] = await connection.query(
+        `DELETE FROM professores
+        WHERE id = ?`,
+        [id]
+    );
+    
+    return id;
+
+};
+
 module.exports = {
     cadastrarProfessor,
     listarProfessores,
-    atualzarProfessor
+    atualzarProfessor,
+    apagarProfessor
 }

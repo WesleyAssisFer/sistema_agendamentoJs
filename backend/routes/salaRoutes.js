@@ -45,4 +45,21 @@ router.put("/:id", async (req, res) => {
     }
 });
 
+router.delete("/:id",async (req, res) => {
+    
+    try{
+        const id = req.params.id;
+
+        const apagarSala = await salaService.excluirSala(id);
+        res.json({
+            id: apagarSala + " apagado"
+        });
+
+    }catch(erro){
+        res.status(400).json({
+            mensagem: erro.message
+        });
+    }
+});
+
 module.exports = router;
