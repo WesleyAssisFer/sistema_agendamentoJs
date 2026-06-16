@@ -1,4 +1,4 @@
-const {Sequelize} = require(`sequelize`);
+/*const {Sequelize} = require(`sequelize`);
 const connectionDb = require(`../database/connection`);
 
 const Sala = connectionDb.define(`salas`,{
@@ -20,6 +20,8 @@ const Sala = connectionDb.define(`salas`,{
         timestamps: false
 });
 
-module.exports = Sala;
+module.exports = Sala;*/
+
+
 
 

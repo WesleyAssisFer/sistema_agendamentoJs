@@ -1,7 +1,8 @@
-const express = require("express");
+import express from "express";
+import ProfessorController from "../controllers/professorController.js";
+
 const router = express.Router();
-const ProfessorController = require("../controllers/professorController");
 
 router.get(`/`, ProfessorController.getAll);
 
-module.exports = router;
+export default router;

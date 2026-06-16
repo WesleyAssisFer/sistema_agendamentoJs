@@ -1,3 +1,4 @@
+/* 
 const salaService = require(`../services/salaService`);
 
 const getAll = async (req, res) => {
@@ -23,4 +24,4 @@ const getAll = async (req, res) => {
 
 module.exports = {
     getAll
-}
+}*/

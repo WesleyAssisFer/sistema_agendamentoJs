@@ -1,10 +1,6 @@
-const Professor = require("../moldes/professorModel");
+import Professor from "../moldes/professorModel.js";
 
-const getAllProfessores = async () => {
+export const getAllProfessores = async () => {
     const professor = await Professor.findAll();
     return professor;
 }
-
-module.exports = {
-    getAllProfessores
-};

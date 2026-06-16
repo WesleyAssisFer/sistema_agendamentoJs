@@ -1,4 +1,4 @@
-const Sala = require("../moldes/salaModel");
+/* const Sala = require("../moldes/salaModel");
 
 const getAllSalas = async () => {
     const sala = await Sala.findAll();
@@ -7,4 +7,5 @@ const getAllSalas = async () => {
 
 module.exports = {
     getAllSalas
-}
+}*/
+

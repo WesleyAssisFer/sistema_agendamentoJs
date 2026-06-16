@@ -1,4 +1,4 @@
-const {Sequelize} = require("sequelize");
+import {Sequelize} from "sequelize";
 
 const sequelize = new Sequelize(
    "agendamento_db",
@@ -12,4 +12,4 @@ const sequelize = new Sequelize(
    
 );
 
-module.exports = sequelize;
+export default sequelize;

@@ -1,12 +1,12 @@
-const express = require("express");
-const sequelize = require("./database/connection");
-const salaRoutes = require("./routes/salaRoutes");
-const professorRouter = require("./routes/professorRoutes");
+import express from "express";
+import sequelize from "./database/connection.js";
+//import salaRoutes from "./routes/salaRoutes";
+import professorRouter from "./routes/professorRoutes.js";
 
 const app = express();
 
 app.use(express.json());
-app.use("/salas", salaRoutes);
+//app.use("/salas", salaRoutes);
 app.use("/professores", professorRouter);
 
 sequelize.authenticate()

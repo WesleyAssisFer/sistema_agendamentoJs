@@ -1,9 +1,10 @@
-const professorService = require("../services/professorService");
+import {getAllProfessores} from "../services/professorService.js";
 
-const getAll = async (req, res) => {
+class ProfessorController {
+    async getAll (req, res){
 
     try{
-        const professor = await professorService.getAllProfessores();
+        const professor = await getAllProfessores();
 
         if(professor.length === 0){
         return res.status(404).json({
@@ -20,7 +21,6 @@ const getAll = async (req, res) => {
     }
 
 };
-
-module.exports = {
-    getAll
 }
+
+export default new ProfessorController();

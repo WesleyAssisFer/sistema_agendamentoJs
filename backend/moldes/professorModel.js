@@ -1,5 +1,5 @@
-const {Sequelize} = require(`sequelize`);
-const connectionDb = require(`../database/connection`);
+import {Sequelize} from "sequelize";
+import connectionDb from "../database/connection.js";
 
 const Professor = connectionDb.define(`professores`,{
     id:{
@@ -21,4 +21,4 @@ const Professor = connectionDb.define(`professores`,{
     timestamps: false,
 });
 
-module.exports = Professor;
+export default Professor;
