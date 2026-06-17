@@ -71,11 +71,22 @@ class SalaController{
             res.status(400).json({
                 mensagem: error.message
             });
+        }  
+    }
+
+    delete = async (req, res) => {
+        const {id} = req.params;
+        const sala = SalaService.deletarSala(id);
+
+        if(!sala){
+            return res.status(404).json({
+                mensagem: "Sala não encontrada"
+            });
         }
 
-        
-        
-
+        return res.status(200).json({
+            mensagem: "id: " + id + " deletado com sucesso"
+        });
     }
 }
 

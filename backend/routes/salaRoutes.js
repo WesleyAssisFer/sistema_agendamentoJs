@@ -11,6 +11,8 @@ router.post(`/`, SalaController.create);
 
 router.put(`/:id`, SalaController.update);
 
+router.delete(`/:id`, SalaController.delete);
+
 export default router; 
 
 
