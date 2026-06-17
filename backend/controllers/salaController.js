@@ -10,8 +10,7 @@ class SalaController{
             return res.status(404).json({
                 mensagem: "Nenhuma sala encontrada"
             });
-        }
-        
+        }       
         return res.status(200).json(sala);
 
     }catch(error){
