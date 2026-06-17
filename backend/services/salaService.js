@@ -44,7 +44,6 @@ class SalaService {
         return true;
     }
 
-    
 };
 
 export default new SalaService;

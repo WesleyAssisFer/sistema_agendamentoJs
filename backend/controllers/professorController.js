@@ -2,7 +2,7 @@ import ProfessorService from "../services/professorService.js";
 
 class ProfessorController {
 
-    async getAll (req, res){
+    getAll = async (req, res) => {
     try{
         const professor = await ProfessorService.getAllProfessores();
 
@@ -21,7 +21,7 @@ class ProfessorController {
     }
 
 };
-    async getById (req, res) {
+    getById = async (req, res) => {
         try{
             const { id } = req.params;
             const professor = await ProfessorService.professorFindById(id);
@@ -40,7 +40,7 @@ class ProfessorController {
         }
     }
 
-    async create (req, res) {
+    create = async (req, res) => {
         try{
             const {nome, email} = req.body;
             const professor = await ProfessorService.createProfessor({nome, email});
@@ -52,7 +52,7 @@ class ProfessorController {
         }
     }
 
-    async update (req, res) {
+    update = async (req, res) => {
         try{
             const {id} = req.params;
             const {nome , email} = req.body;
@@ -72,7 +72,7 @@ class ProfessorController {
         }
     }
 
-    async delete (req, res) {
+     delete = async (req, res) => {
 
         try{
             const {id} = req.params;
