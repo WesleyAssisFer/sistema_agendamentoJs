@@ -1,4 +1,4 @@
-import {getAllProfessores} from "../services/professorService.js";
+import {getAllProfessores, createProfessor} from "../services/professorService.js";
 
 class ProfessorController {
     async getAll (req, res){
@@ -21,6 +21,17 @@ class ProfessorController {
     }
 
 };
+    async create (req, res) {
+        try{
+            const {nome, email} = req.body;
+            const professor = await createProfessor({nome, email});
+            return res.status(201).json(professor);
+        }catch(error){
+            res.status(400).json({
+                mensagem: error.message
+            });
+        }
+    }
 }
 
 export default new ProfessorController();
