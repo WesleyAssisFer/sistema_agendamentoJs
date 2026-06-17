@@ -1,9 +1,10 @@
-/*const salaService = require(`../services/salaService`);
+import SalaService from "../services/salaService.js";
 
-const getAll = async (req, res) => {
+class SalaController{
+   async getAll (req, res) {
 
     try{
-        const sala = await salaService.getAllSalas();
+        const sala = await SalaService.getAllSalas;
 
         if(sala.length === 0){
             return res.status(404).json({
@@ -18,10 +19,8 @@ const getAll = async (req, res) => {
             mensagem: error.message
         });
     }
-
 };
 
-module.exports = {
-    getAll
 }
-    */
+
+export default new SalaController;

@@ -1,5 +1,5 @@
-/*const {Sequelize} = require(`sequelize`);
-const connectionDb = require(`../database/connection`);
+import {Sequelize} from "sequelize";
+import connectionDb from "../database/connection.js";
 
 const Sala = connectionDb.define(`salas`,{
     id:{
@@ -20,6 +20,8 @@ const Sala = connectionDb.define(`salas`,{
         timestamps: false
 });
 
-module.exports = Sala;
-*/
+export default Sala;
+
+
+
 

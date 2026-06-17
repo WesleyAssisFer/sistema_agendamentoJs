@@ -1,8 +1,11 @@
-/*const express = require("express");
+import express from "express";
+import SalaController from "../controllers/salaController.js";
+
 const router = express.Router();
-const salaController = require(`../controllers/salaController`);
 
-router.get(`/`, salaController.getAll);
+router.get(`/`, SalaController.getAll);
 
-module.exports = router;
-*/
+export default router; 
+
+
+

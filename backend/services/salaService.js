@@ -1,10 +1,15 @@
-/*const Sala = require("../moldes/salaModel");
+ import Sala from "../moldes/salaModel.js";
 
-const getAllSalas = async () => {
+class SalaService {
+    getAllSalas = async () => {
     const sala = await Sala.findAll();
     return sala;
+};
+
 }
 
-module.exports = {
-    getAllSalas
-} */
+export default new SalaService;
+
+
+
+
