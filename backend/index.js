@@ -2,6 +2,7 @@ import express from "express";
 import sequelize from "./database/connection.js";
 import salaRoutes from "./routes/salaRoutes.js";
 import professorRouter from "./routes/professorRoutes.js";
+import "./models/index.js";
 
 const app = express();
 

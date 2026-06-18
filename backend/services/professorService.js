@@ -1,4 +1,4 @@
-import Professor from "../moldes/professorModel.js";
+import Professor from "../models/professorModel.js";
 
 class ProfessorService {
 

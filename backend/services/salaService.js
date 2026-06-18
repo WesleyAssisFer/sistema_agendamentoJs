@@ -1,4 +1,4 @@
- import Sala from "../moldes/salaModel.js";
+ import Sala from "../models/salaModel.js";
 
 class SalaService {
     getAllSalas = async () => {

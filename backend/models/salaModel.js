@@ -21,7 +21,3 @@ const Sala = connectionDb.define(`salas`,{
 });
 
 export default Sala;
-
-
-
-
