@@ -22,16 +22,16 @@ const Agendamento = connectionDb.define(`agendamentos`,{
 
     // Data
     data:{
-        type: Sequelize.DATAONLY,
+        type: Sequelize.DATEONLY,
         allowNull: false,
     },
 
-    hora_incio: {
+    horario_inicio: {
         type: Sequelize.TIME,
         allowNull: false,
     },
 
-    hora_fim: {
+    horario_fim: {
         type: Sequelize.TIME,
         allowNull: false
     },

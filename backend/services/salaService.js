@@ -31,19 +31,7 @@ class SalaService {
         await sala.update(dados);
 
         return sala;
-    } 
-
-    deletarSala = async (id) => {
-        const sala = await Sala.findByPk(id);
-
-        if(!sala){
-            return null;
-        }
-
-        await sala.destroy();
-        return true;
-    }
-
+    }     
 };
 
 export default new SalaService;

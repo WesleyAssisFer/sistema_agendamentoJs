@@ -1,9 +1,9 @@
 import {Sequelize} from "sequelize";
 
 const sequelize = new Sequelize(
-   "agendamento_db",
+   "agendamentos_db",
      "root",
-    "",
+    "user123",
     {
         host: "localhost",
         dialect: "mysql",
