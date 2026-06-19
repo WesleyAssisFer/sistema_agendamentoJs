@@ -26,7 +26,7 @@ class ProfessorController {
             const { id } = req.params;
             const professor = await ProfessorService.professorFindById(id);
             
-          if(!professor){
+          if(!professor.id){
             return res.status(404).json({
                 mensagem: "Professor não encontrado"
             });
@@ -58,7 +58,7 @@ class ProfessorController {
             const {nome , email} = req.body;
             const professor = await ProfessorService.updateProfessor(id, {nome, email});
 
-            if(!professor){
+            if(!professor.id){
                 return res.status(404).json({
                     mensagem: "Professor não encontrado"
                 });
@@ -75,10 +75,10 @@ class ProfessorController {
      delete = async (req, res) => {
 
         try{
-            const {id} = req.params;
+            const { id } = req.params;
             const professor = await ProfessorService.deleteProfessor(id);
 
-        if(!professor){
+        if(!professor.id){
             return res.status(404).json({
                 mensagem: "Professor não encontrado"
             });

@@ -34,7 +34,6 @@ class ProfessorService {
 };
 
     deleteProfessor = async (id) => {
-
     const professor = await Professor.findByPk(id);
     
     if(!professor){
