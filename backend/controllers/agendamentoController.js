@@ -26,7 +26,7 @@ class agendametoController {
             const { id } = req.params;
             const agendamento = await agendamentoService.getByIdAgendamento(id);
 
-            if(!agendamento.id){
+            if(!agendamento){
                 return res.status(404).json({
                     mensagem: "Agendamento não encontrado"
                 });
@@ -90,9 +90,9 @@ class agendametoController {
     deleteAgendamento = async(req, res) => {
         try{
             const { id } = req.params;
-            const agendamento = agendamentoService.deleteAgendamento(id);
+            const agendamento = await agendamentoService.deleteAgendamento(id);
 
-            if(!agendamento.id){
+            if(!agendamento){
                 return res.status(404).json({
                     mensagem: "Agendamento não encontrado"
                 });
@@ -103,7 +103,9 @@ class agendametoController {
             });
 
         }catch(error){
+           return res.status(400).json({
             mensagem: error.message
+           });
         };
 
     }
