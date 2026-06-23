@@ -38,6 +38,18 @@ const Agendamento = connectionDb.define(`agendamentos`,{
 
 },{
     timestamps:false,
+
+    indexes: [
+
+        {
+            name: 'idx_sala_id_data',
+            fields: ['sala_id', 'data']
+        },
+        {
+            name: 'idx_professor_id_data',
+            fields: ['professor_id', 'data']
+        }
+    ]
     
 });
 

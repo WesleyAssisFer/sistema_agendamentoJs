@@ -105,11 +105,12 @@ class agendamentoService {
         }
 
         const conflitoProfessor = await Agendamento.findOne({
-            professor_id,
+           where: { professor_id,
             data,
             horario_inicio: { [Op.lt]: horario_fim },
             horario_fim: { [Op.gt]: horario_inicio },
             id: { [Op.ne]: id },
+           },
         });
 
         if(conflitoProfessor){
